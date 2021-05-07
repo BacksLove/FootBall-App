@@ -84,17 +84,54 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EA1-am-xwh">
+                                <rect key="frame" x="0.0" y="100" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="1bM-gR-jUa"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" id="jMg-1y-6wr">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="52.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jMg-1y-6wr" id="Elf-Ph-KeR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="52.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGY-fg-Ncr">
+                                                    <rect key="frame" x="25" y="16" width="364" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="5xv-Rb-5jr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XGY-fg-Ncr" secondAttribute="trailing" constant="5" id="JrY-gq-3DU"/>
+                                                <constraint firstItem="XGY-fg-Ncr" firstAttribute="top" secondItem="Elf-Ph-KeR" secondAttribute="topMargin" constant="5" id="JxA-Xk-O2M"/>
+                                                <constraint firstItem="XGY-fg-Ncr" firstAttribute="leading" secondItem="Elf-Ph-KeR" secondAttribute="leadingMargin" constant="5" id="k3k-E0-lMY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XGY-fg-Ncr" secondAttribute="bottom" constant="5" id="pj0-1i-j9G"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EA1-am-xwh" secondAttribute="trailing" id="6d6-wf-hy1"/>
                             <constraint firstItem="ym9-nu-o8I" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="G2Z-CD-VcQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JtB-aT-j8s" secondAttribute="bottom" id="K90-KV-98B"/>
                             <constraint firstItem="ym9-nu-o8I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NTL-qX-qtv"/>
                             <constraint firstItem="JtB-aT-j8s" firstAttribute="top" secondItem="ym9-nu-o8I" secondAttribute="bottom" constant="15" id="Od1-K5-Qy3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JtB-aT-j8s" secondAttribute="trailing" constant="30" id="U28-7G-q4C"/>
                             <constraint firstItem="ym9-nu-o8I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eMV-So-pzq"/>
+                            <constraint firstItem="EA1-am-xwh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qTu-Yd-CAg"/>
                             <constraint firstItem="JtB-aT-j8s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="rB1-kG-2Qs"/>
+                            <constraint firstItem="EA1-am-xwh" firstAttribute="top" secondItem="ym9-nu-o8I" secondAttribute="bottom" id="ySA-jD-yer"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B5i-5W-kOk"/>
@@ -102,6 +139,7 @@
                     <connections>
                         <outlet property="collectionView" destination="JtB-aT-j8s" id="PgJ-kr-eeH"/>
                         <outlet property="searchBar" destination="ym9-nu-o8I" id="s7r-AQ-EvE"/>
+                        <outlet property="tableView" destination="EA1-am-xwh" id="OuF-UY-cwK"/>
                         <segue destination="T6A-fz-4nS" kind="show" identifier="toTeamDetailSegue" id="8jO-9T-UkY"/>
                     </connections>
                 </viewController>
