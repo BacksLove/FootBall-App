@@ -12,19 +12,11 @@ struct TeamDetail: Codable {
 }
 
 struct TeamDetailInfo: Codable {
-    var strTeam: String
-    var strLeague: String
-    var strCountry: String
+    var strTeam: String = ""
+    var strLeague: String = ""
+    var strCountry: String = ""
     var strDescriptionEN : String?
     var strTeamBanner: String?
-    var strSport: String
-    
-    init() {
-        strTeam = ""
-        strSport = ""
-        strLeague = ""
-        strCountry = ""
-        strTeamBanner = ""
-        strDescriptionEN = ""
-    }
+    var strSport: String = ""
+
 }

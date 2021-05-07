@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
@@ -87,11 +88,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cellImage = cell.viewWithTag(1001) as! UIImageView
         let cellText = cell.viewWithTag(1002) as! UILabel
         
-        DispatchQueue.main.async {
-            if let data = try? Data(contentsOf: url!) {
-                cellImage.image = UIImage(data: data)
-            }
-        }
+        cellImage.kf.setImage(with: url)
         cellText.text = team.strTeam
         return cell
     }

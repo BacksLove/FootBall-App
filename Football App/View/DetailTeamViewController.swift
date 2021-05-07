@@ -33,11 +33,7 @@ class DetailTeamViewController: UIViewController, DetailPresenterDelegate {
     func updateUI() {
         if self.team.strTeamBanner != nil {
             let url = URL(string: self.team.strTeamBanner!)
-            DispatchQueue.main.async {
-                if let data = try? Data(contentsOf: url!) {
-                    self.teamBannerImageView.image = UIImage(data: data)
-                }
-            }
+            self.teamBannerImageView.kf.setImage(with: url)
         }
         self.title = self.team.strTeam
         self.teamCountryLabel.text = self.team.strCountry
