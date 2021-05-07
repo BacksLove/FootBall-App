@@ -53,7 +53,6 @@ class HomePresenter {
                 return
             }
             do {
-                print("ko bey")
                 let allLeaguesData = try JSONDecoder().decode(Leagues.self, from: safeData)
                 var allLeagues = [String]()
                 for league in allLeaguesData.leagues {
@@ -61,7 +60,6 @@ class HomePresenter {
                         allLeagues.append(league.strLeague)
                     }
                 }
-                print(allLeagues)
                 self.delegate?.getAllLeagues(leagues: allLeagues)
             }
             catch {
@@ -70,7 +68,6 @@ class HomePresenter {
         }
         task.resume()
     }
-    
-    
+
     
 }
