@@ -12,7 +12,12 @@ struct Leagues:Codable {
 }
 
 struct League: Codable {
-    var strLeague: String
-    var strSport: String
+    var name: String
+    var sport: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "strLeague"
+        case sport = "strSport"
+    }
 }
 

@@ -12,11 +12,20 @@ struct TeamDetail: Codable {
 }
 
 struct TeamDetailInfo: Codable {
-    var strTeam: String = ""
-    var strLeague: String = ""
-    var strCountry: String = ""
-    var strDescriptionEN : String?
-    var strTeamBanner: String?
-    var strSport: String = ""
+    var name: String = ""
+    var league: String = ""
+    var country: String = ""
+    var description : String? = ""
+    var banner: String? = ""
+    var sport: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "strTeam"
+        case league = "strLeague"
+        case country = "strCountry"
+        case description = "strDescriptionEN"
+        case banner = "strTeamBanner"
+        case sport = "strSport"
+    }
 
 }

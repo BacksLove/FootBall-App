@@ -27,12 +27,10 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isHidden = true
         searchBar.delegate = self
         presenter.setViewDelegate(delegate: self)
-        tableView.isHidden = true
-        
         presenter.getAllLeagues()
-        //tableView.reloadData()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -41,6 +39,8 @@ class HomeViewController: UIViewController {
 }
 
 // MARK:- TableView
+
+// Tableview pour l'affichage des suggestions pour l'autocomplétion
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,13 +83,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let team: Team
         team = allTeams[indexPath.item]
-        let url = URL(string: team.strTeamBadge)
+        let url = URL(string: team.logo)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath)
         let cellImage = cell.viewWithTag(1001) as! UIImageView
         let cellText = cell.viewWithTag(1002) as! UILabel
         
         cellImage.kf.setImage(with: url)
-        cellText.text = team.strTeam
+        cellText.text = team.name
         return cell
     }
     
@@ -97,7 +97,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let team: Team
         team = allTeams[indexPath.row]
         let dtvc = storyboard?.instantiateViewController(withIdentifier: "DetailTeamViewController") as? DetailTeamViewController
-        dtvc?.selectedTeam = team.strTeam
+        dtvc?.selectedTeam = team.name
         self.navigationController?.pushViewController(dtvc!, animated: true)
     }
 }
@@ -129,6 +129,8 @@ extension HomeViewController: UISearchBarDelegate{
 }
 
 // MARK:- PresenterDelegate
+
+// Transfert des données à la vue
 
 extension HomeViewController: HomePresenterDelegate {
     func getTeamsLeague(teams: [Team]) {

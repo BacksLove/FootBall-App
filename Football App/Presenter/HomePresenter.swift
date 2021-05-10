@@ -45,6 +45,8 @@ class HomePresenter {
         task.resume()
     }
     
+    // Recupération en base de la liste des ligues pour l'autocomplétion
+    
     public func getAllLeagues() {
         guard let url = URL(string: ligueURL) else { return }
         let session = URLSession(configuration: .default)
@@ -56,8 +58,8 @@ class HomePresenter {
                 let allLeaguesData = try JSONDecoder().decode(Leagues.self, from: safeData)
                 var allLeagues = [String]()
                 for league in allLeaguesData.leagues {
-                    if league.strSport == "Soccer" {
-                        allLeagues.append(league.strLeague)
+                    if league.sport == "Soccer" {
+                        allLeagues.append(league.name)
                     }
                 }
                 self.delegate?.getAllLeagues(leagues: allLeagues)

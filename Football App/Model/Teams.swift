@@ -12,6 +12,11 @@ struct Teams:Codable {
 }
 
 struct Team: Codable {
-    var strTeam: String
-    var strTeamBadge: String
+    var name: String
+    var logo: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "strTeam"
+        case logo = "strTeamBadge"
+    }
 }

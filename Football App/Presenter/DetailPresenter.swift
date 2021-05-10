@@ -36,7 +36,7 @@ class DetailPresenter {
                 let steamData = try JSONDecoder().decode(TeamDetail.self, from: safeData)
                 var steam = TeamDetailInfo()
                 for tmp in steamData.teams {
-                    if tmp.strSport == "Soccer" && tmp.strTeam == team {
+                    if tmp.sport == "Soccer" && tmp.name == team {
                         steam = tmp
                     }
                 }

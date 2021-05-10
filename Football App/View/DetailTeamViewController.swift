@@ -31,15 +31,15 @@ class DetailTeamViewController: UIViewController, DetailPresenterDelegate {
     }
     
     func updateUI() {
-        if self.team.strTeamBanner != nil {
-            let url = URL(string: self.team.strTeamBanner!)
+        if self.team.banner != nil {
+            let url = URL(string: self.team.banner!)
             self.teamBannerImageView.kf.setImage(with: url)
         }
-        self.title = self.team.strTeam
-        self.teamCountryLabel.text = self.team.strCountry
-        self.teamLeagueLabel.text = self.team.strLeague
-        if self.team.strDescriptionEN != nil {
-            self.teamDescriptionLabel.text = self.team.strDescriptionEN
+        self.title = self.team.name
+        self.teamCountryLabel.text = self.team.country
+        self.teamLeagueLabel.text = self.team.league
+        if self.team.description != nil {
+            self.teamDescriptionLabel.text = self.team.description
         }
     }
 
